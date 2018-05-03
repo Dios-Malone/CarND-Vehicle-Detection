@@ -54,7 +54,7 @@ Here is an example using the `HSV` color space and HOG parameters of `orientatio
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
 I tried various combinations of parameters and recorded the results as following:
-![hog_params](output_images/hog_params.png)
+![hog_params](output_images/hog_params.PNG)
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
@@ -64,7 +64,7 @@ I trained a linear SVM using a combination of hog features and color features. T
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-After observing the video frames, I noticed that only the bottom half could have cars. And the cars have bigger scale at the bottom and smaller scale at the upper area of the bottom half image. Based on the observation, I decided the searching range as following (The areas between 2 red lines are the searching range and the blue rectangles show some example of the windows.
+After observing the video frames, I noticed that only the bottom half could have cars. And the cars have bigger scale at the bottom and smaller scale at the upper area of the bottom half image. Based on the observation, I decided the searching range as following (The areas between 2 red lines are the searching range and the blue rectangles show some example of the windows. The code for this step is contained in 9th code cell of the IPython notebook.
 
 ![search range](output_images/search_range.png)
 
@@ -84,7 +84,7 @@ Here's a [link to my video result](project_video_out.mp4)
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
+The code for this step is contained in 9th code cell of the IPython notebook. I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
