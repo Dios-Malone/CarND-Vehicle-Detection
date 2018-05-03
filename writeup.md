@@ -49,12 +49,12 @@ I then explored different color spaces and different `skimage.hog()` parameters 
 Here is an example using the `HSV` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 
-![hog features]('./output_images/hog_features.png')
+![hog features](output_images/hog_features.png)
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
 I tried various combinations of parameters and recorded the results as following:
-![hog_params]('./output_images/hog_params.png')
+![hog_params](output_images/hog_params.png)
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
@@ -66,20 +66,20 @@ I trained a linear SVM using a combination of hog features and color features. T
 
 After observing the video frames, I noticed that only the bottom half could have cars. And the cars have bigger scale at the bottom and smaller scale at the upper area of the bottom half image. Based on the observation, I decided the searching range as following (The areas between 2 red lines are the searching range and the blue rectangles show some example of the windows.
 
-![search range]('./output_images/search_range.png')
+![search range](output_images/search_range.png)
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 Ultimately I searched on six scales using HSV 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![out image 1]('./output_images/output_image1.png')
-![out image 2]('./output_images/output_image2.png')
+![out image 1](output_images/output_image1.png)
+![out image 2](output_images/output_image2.png)
 ---
 
 ### Video Implementation
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video_out.mp4)
+Here's a [link to my video result](project_video_out.mp4)
 
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
@@ -89,9 +89,9 @@ I recorded the positions of positive detections in each frame of the video.  Fro
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
 ### Here are some examples of heatmaps and their corresponding final results:
-![heat map 1]('./output_images/heat_map1.png')
-![heat map 2]('./output_images/heat_map2.png')
-![heat map 3]('./output_images/heat_map3.png')
+![heat map 1](output_images/heat_map1.png)
+![heat map 2](output_images/heat_map2.png)
+![heat map 3](output_images/heat_map3.png)
 
 
 
